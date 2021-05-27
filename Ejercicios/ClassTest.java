@@ -1,4 +1,4 @@
-import jdk.jfr.Percentage;
+package Ejercicios;
 
 public class ClassTest {
     private int peso = 0;
@@ -6,6 +6,4 @@ public class ClassTest {
     public int getPeso(){
         return peso;
     }
-
-
 }
