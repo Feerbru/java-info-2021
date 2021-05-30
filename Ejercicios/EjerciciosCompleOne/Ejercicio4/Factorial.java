@@ -6,14 +6,11 @@ public class Factorial {
     
     int factorial(int fact){
         if(fact > 0){
-            int dato = fact * factorial(fact - 1);
-            return dato;
+            return fact * factorial(fact - 1);
         }else{
             return 1;
         }
     }
-
-
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
