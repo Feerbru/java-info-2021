@@ -2,7 +2,7 @@
 convierta por completo a mayúsculas. Sin uso de métodos o librerías que
 realicen toUppercase().
 */
-package Ejercicios.EjerciciosCompleOne.Ejercicio7;
+package Ejercicios.EjerciciosComp1.Ejercicio7;
 
 import java.util.Scanner;
 

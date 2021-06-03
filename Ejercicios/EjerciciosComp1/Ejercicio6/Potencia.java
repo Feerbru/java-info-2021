@@ -1,7 +1,7 @@
 /*Se desea una aplicación que solicite 2 números enteros y realice la operación
 de potencia (sin uso de librerías).
 */
-package Ejercicios.EjerciciosCompleOne.Ejercicio6;
+package Ejercicios.EjerciciosComp1.Ejercicio6;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package Ejercicios.EjerciciosCompleOne.Ejercicio8;
+package Ejercicios.EjerciciosComp1.Ejercicio8;
 
 public class Persona {
     

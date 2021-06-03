@@ -1,4 +1,4 @@
-package Ejercicios.EjerciciosCompleOne.Ejercicio2;
+package Ejercicios.EjerciciosComp1.Ejercicio2;
 
 public class Calculadora {
     

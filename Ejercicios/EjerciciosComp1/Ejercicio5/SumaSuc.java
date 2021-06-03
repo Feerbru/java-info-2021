@@ -1,7 +1,7 @@
 /*Se desea una aplicación que solicite 2 números enteros y realice la operación
 de multiplicación por sumas sucesivas (sin uso de librerías).
 */
-package Ejercicios.EjerciciosCompleOne.Ejercicio5;
+package Ejercicios.EjerciciosComp1.Ejercicio5;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package Ejercicios.EjerciciosCompleOne.Ejercicio1;
+package Ejercicios.EjerciciosComp1.Ejercicio1;
 
 public class Usuario {
     

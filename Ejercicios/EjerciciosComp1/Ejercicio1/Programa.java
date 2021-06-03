@@ -1,4 +1,4 @@
-package Ejercicios.EjerciciosCompleOne.Ejercicio1;
+package Ejercicios.EjerciciosComp1.Ejercicio1;
 
 public class Programa {
     public static void main(String[] args) {

@@ -2,7 +2,7 @@
 entrada imprima la secuencia de números (incrementos de 1) de la siguiente
 forma:
 */
-package Ejercicios.EjerciciosCompleOne.Ejercicio3;
+package Ejercicios.EjerciciosComp1.Ejercicio3;
 
 import java.util.Scanner;
 

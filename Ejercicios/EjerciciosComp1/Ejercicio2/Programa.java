@@ -2,7 +2,7 @@
 **imprimir el resultado de la suma, resta, multiplicación, división y módulo (resto
 **de la división) de ambos números.
 */
-package Ejercicios.EjerciciosCompleOne.Ejercicio2;
+package Ejercicios.EjerciciosComp1.Ejercicio2;
 
 import java.util.Scanner;
 
