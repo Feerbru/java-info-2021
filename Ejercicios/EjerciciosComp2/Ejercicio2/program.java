@@ -6,10 +6,12 @@ en la primera y última posición).
 package Ejercicios.EjerciciosComp2.Ejercicio2;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class program {
     public static void main(String[] args) {
-        ArrayList<Integer> listaInt = new ArrayList<>();
+
+        List<Integer> listaInt = new ArrayList<>();
         int tamInicial = 0;
         int tamFinal = 0;
 
