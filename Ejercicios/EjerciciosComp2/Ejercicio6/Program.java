@@ -24,7 +24,8 @@ public class Program {
         Map<Integer,String> listaSueldo = new HashMap<>();
 
         empleados.addAll(cargarEmpleados());
-        System.out.println(empleados);
+        listaSueldo = calcularSueldo(empleados);
+        imprimirMap(listaSueldo);
 
     }
     public static Set<Empleado> cargarEmpleados(){
@@ -51,11 +52,11 @@ public class Program {
 
         for (int i = 0; i < vector.length; i++) {
 
-            System.out.println("Ingrese el nombre: ");
+            System.out.print("Ingrese el nombre:\n");
             nomb = scan.nextLine();
-            System.out.println("Ingrese el apellido: ");
+            System.out.println("Ingrese el apellido:");
             apell = scan.nextLine();
-            System.out.println("ingrese el dni: ");
+            System.out.println("ingrese el dni:");
             Dni = scan.nextLine();
             System.out.println("Ingrese las horas trabajadas: ");
             horasTrab = scan.nextInt();
@@ -69,7 +70,7 @@ public class Program {
         return vector;
     }
 
-    public Map<Integer, String> calcularSueldo(Set<Empleado> listaEmpleados){
+    public static Map<Integer, String> calcularSueldo(Set<Empleado> listaEmpleados){
 
         Map<Integer, String> totalSueld = new HashMap<>();
 
@@ -79,5 +80,14 @@ public class Program {
         }
 
         return totalSueld;
+    }
+
+    public static void imprimirMap(Map<Integer, String> listaEmple){
+        Iterator<Integer> ite = listaEmple.keySet().iterator();
+
+        while (ite.hasNext()) {
+            Integer key = ite.next();
+            System.out.println("Dni:" + key + ", Sueldo:" + listaEmple.get(key));
+        }
     }
 }
