@@ -13,7 +13,7 @@ public class Persona {
     public Persona(String nomb, String apell, String fecha, String sueldo){
         this.nombre = nomb;
         this.apellido = apell;
-        this.fecha = LocalDate.parse(fecha , DateTimeFormatter.ofPattern("dd-MM-yyyy") );
+        this.fecha = LocalDate.parse(fecha , DateTimeFormatter.ofPattern("dd-MM-yyyy"));
         this.Sueldo = new BigDecimal(sueldo);
     }
     public Persona(){};
@@ -34,13 +34,17 @@ public class Persona {
         this.fecha = LocalDate.parse(fecha, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
     }
     public LocalDate getFecha(){
-        return this.fecha;
+        return  this.fecha;
     }
     public void setSueldo(String sueldo){
         this.Sueldo = new BigDecimal(sueldo);
     }
     public BigDecimal getSueldo(){
         return this.Sueldo;
+    }
+    @Override
+    public String toString() {
+        return "Nombre y Apellido: " + this.nombre + "," + this.apellido + "- Fecha de Nacimiento: " + this.fecha + "- Sueldo: $" + this.Sueldo;
     }
     
 }
