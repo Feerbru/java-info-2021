@@ -1,0 +1,3 @@
+Carlos,Sanchez,20-01-1980,45678.08
+Fernando,Bruzzo,07-02-1989,55879.00
+Matias,Lienzo,09-12-1999,89456.08
