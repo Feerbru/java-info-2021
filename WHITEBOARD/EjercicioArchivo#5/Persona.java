@@ -3,6 +3,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+
 public class Persona {
     
     private String nombre;
@@ -44,7 +45,11 @@ public class Persona {
     }
     @Override
     public String toString() {
-        return "Nombre y Apellido: " + this.nombre + "," + this.apellido + "- Fecha de Nacimiento: " + this.fecha + "- Sueldo: $" + this.Sueldo;
+        return "Nombre y Apellido: " + this.nombre + "," + this.apellido + " - Fecha de Nacimiento: " + formatearFecha() + " - Sueldo: $" + this.Sueldo;
     }
-    
+
+    public String formatearFecha(){
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return this.fecha.format(df);
+    }
 }

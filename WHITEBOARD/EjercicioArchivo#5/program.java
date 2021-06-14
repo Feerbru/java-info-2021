@@ -1,6 +1,5 @@
 import java.io.*;
 import java.time.*;
-import java.time.format.DateTimeFormatter;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -8,15 +7,14 @@ import java.util.List;
 import java.util.Scanner;
 
 public class program {
-    public static DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     public static void main(String[] args) throws IOException {
 
-        //String archivoWindows = "D:\\Informatorio\\Modulo 3\\Java\\Proyectos\\Informatorio-Java2021\\java-info-2021\\WHITEBOARD\\EjercicioArchivo#5\\archivo.txt";
-        String archivoLinux = "/media/feerbru/Disco local/Informatorio/Proyectos/java-info-2021/WHITEBOARD/EjercicioArchivo#5/archivo.txt";
+        String archivoWindows = "D:\\Informatorio\\Modulo 3\\Java\\Proyectos\\Informatorio-Java2021\\java-info-2021\\WHITEBOARD\\EjercicioArchivo#5\\archivo.txt";
+        //String archivoLinux = "/media/feerbru/Disco local/Informatorio/Proyectos/java-info-2021/WHITEBOARD/EjercicioArchivo#5/archivo.txt";
         Scanner scan = new Scanner(System.in);
 
         //Abrimos el archivo txt y cargamos la lista de con objetos de personas.
-        List<Persona> personas = cargarLista(archivoLinux);
+        List<Persona> personas = cargarLista(archivoWindows);
 
         //Imprimimos por pantalla y pedimos al usuario a que ingrese una letra para buscar en la lista por appellido.
         System.out.println("BUSCA EN LA LISTA POR LETRA INGRESADA");
