@@ -1,5 +1,7 @@
 {
     "java.project.sourcePaths": [
-        "WHITEBOARD/EjercicioArchivo#5"
+        "WHITEBOARD/EjercicioArchivo#5",
+        "Ejercicios/EjerciciosEnClases/Ejercicio1-Clase",
+        "Ejercicios/EjerciciosEnClases/Ejercicio2-Clase"
     ]
 }
