@@ -20,7 +20,7 @@ almacenar en un Map (o Diccionario) donde la clave (key) es el dni y el valor
 public class Program {
     public static void main(String[] args) {
 
-        Set<Empleado> empleados = new HashSet<Empleado>();
+        Set<Empleado1> empleados = new HashSet<Empleado1>();
         Map<Integer,String> listaSueldo = new HashMap<>();
 
         empleados.addAll(cargarEmpleados());
@@ -28,10 +28,10 @@ public class Program {
         imprimirMap(listaSueldo);
 
     }
-    public static Set<Empleado> cargarEmpleados(){
+    public static Set<Empleado1> cargarEmpleados(){
 
-        Set<Empleado> empleado = new HashSet<>();
-        Empleado vector[] = crearEmpleados();
+        Set<Empleado1> empleado = new HashSet<>();
+        Empleado1 vector[] = crearEmpleados();
 
         for (int i = 0; i < vector.length; i++) {
             empleado.add(vector[i]);
@@ -39,7 +39,7 @@ public class Program {
         return empleado;
     }
 
-    private static Empleado[] crearEmpleados(){
+    private static Empleado1[] crearEmpleados(){
 
         Scanner scan = new Scanner(System.in);
         String nomb, apell, Dni;
@@ -48,7 +48,7 @@ public class Program {
         System.out.println("Ingrese la cantidad de empleados que desea cargar:");
         cantEmpleados = scan.nextInt();
 
-        Empleado vector[] = new Empleado[cantEmpleados];
+        Empleado1 vector[] = new Empleado1[cantEmpleados];
 
         for (int i = 0; i < vector.length; i++) {
 
@@ -63,18 +63,18 @@ public class Program {
             System.out.println("Ingrese el valor por horas trabajadas: ");
             valorPHora = scan.nextInt();
 
-            vector[i] = new Empleado(nomb,apell,Dni,horasTrab,valorPHora);
+            vector[i] = new Empleado1(nomb,apell,Dni,horasTrab,valorPHora);
         }
 
         scan.close();
         return vector;
     }
 
-    public static Map<Integer, String> calcularSueldo(Set<Empleado> listaEmpleados){
+    public static Map<Integer, String> calcularSueldo(Set<Empleado1> listaEmpleados){
 
         Map<Integer, String> totalSueld = new HashMap<>();
 
-        for (Empleado empleado : listaEmpleados) {
+        for (Empleado1 empleado : listaEmpleados) {
             String total = "$" +  empleado.getHorasTrabajadas() * empleado.getValorPorHoras();
             totalSueld.put(Integer.parseInt(empleado.getDNI()), total);
         }
