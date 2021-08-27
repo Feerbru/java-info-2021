@@ -1,12 +1,11 @@
 package com.informatorio.demo.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Locale;
 
-@Entity
-public class Empleado {
+@MappedSuperclass
+public abstract class Empleado {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,6 +14,8 @@ public class Empleado {
     private String nombre;
 
     private String apellido;
+
+    private LocalDate FechaNacimiento;
 
     public Long getId() {
         return id;
@@ -38,5 +39,13 @@ public class Empleado {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    public LocalDate getFechaNacimiento() {
+        return FechaNacimiento;
+    }
+
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        FechaNacimiento = fechaNacimiento;
     }
 }
