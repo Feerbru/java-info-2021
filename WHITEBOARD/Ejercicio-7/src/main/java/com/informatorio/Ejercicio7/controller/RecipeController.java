@@ -40,6 +40,6 @@ public class RecipeController {
 
     @RequestMapping(value = "/recipe/{id}" , method = RequestMethod.DELETE)
     public void deleteId(@PathVariable("id") Long id){
-        repository.deleteById(id); 
+        repository.deleteById(id);
     }
 }
