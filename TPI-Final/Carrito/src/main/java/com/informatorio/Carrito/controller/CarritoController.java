@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 public class CarritoController {
@@ -26,8 +27,8 @@ public class CarritoController {
     public Carrito editarCarrito(@PathVariable("carritoId") Long carritoId,@Valid @RequestBody Carrito carrito){
         return serviceCarrito.editarCarrito(carritoId,carrito);
     }
-    @GetMapping(value = "/carrito")
-    public ResponseEntity<?> obtenerCarritos(){
+    @GetMapping(value = "/carrito/mostrar")
+    public List<Carrito> obtenerCarritos(){
         return serviceCarrito.obtenerCarritos();
     }
 
@@ -36,9 +37,15 @@ public class CarritoController {
         return serviceCarrito.obtenerCarritoPorId(id);
     }
 
-    @PostMapping(value = "/carrito/{idCarrito}")
-    public ResponseEntity<?> agregarProducto(@PathVariable("idCarrito") Long idCarrito,
-                                             @Valid @RequestBody OperacionCarrito operacionCarrito){
-        return serviceCarrito.agregarProducto(idCarrito,operacionCarrito);
+    @PostMapping(value = "/usuario/{id}/carrito/{idCarrito}")
+    public ResponseEntity<?> agregarProducto(@PathVariable("id") Long idUsuario,
+                                             @PathVariable("idCarrito") Long idCarrito,
+                                             @RequestBody OperacionCarrito operacionCarrito){
+        return serviceCarrito.agregarProducto(idUsuario,idCarrito,operacionCarrito);
+    }
+
+    @PutMapping(value = "/carrito/{id_carrito}/estado")
+    public ResponseEntity<?> cerrarCarrito(@PathVariable("id_carrito") Long idCarrito){
+        return serviceCarrito.cerrarCarrito(idCarrito);
     }
 }

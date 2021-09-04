@@ -1,16 +1,15 @@
 package com.informatorio.Carrito.service;
 
 import com.informatorio.Carrito.dto.OperacionCarrito;
-import com.informatorio.Carrito.entity.Carrito;
-import com.informatorio.Carrito.entity.DetalleDeCarrito;
-import com.informatorio.Carrito.entity.Producto;
-import com.informatorio.Carrito.entity.Usuario;
+import com.informatorio.Carrito.entity.*;
 import com.informatorio.Carrito.repository.CarritoRepository;
 import com.informatorio.Carrito.repository.ProductoRepository;
 import com.informatorio.Carrito.repository.UsuarioRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service("servicioCarrito")
 public class ServiceCarritoImpl implements ServiceCarrito{
@@ -29,12 +28,12 @@ public class ServiceCarritoImpl implements ServiceCarrito{
     public ResponseEntity<?> crearCarrito(Long userId, Carrito carrito) {
         Usuario usuario =usuarioRepository.getById(userId);
         carrito.setUsuario(usuario);
-        return new ResponseEntity<>(carritoRepository.save(carrito), HttpStatus.OK);
+        return new ResponseEntity<>(carritoRepository.save(carrito), HttpStatus.CREATED);
     }
 
     @Override
-    public ResponseEntity<?> obtenerCarritos() {
-        return new ResponseEntity<>(carritoRepository.findAll(), HttpStatus.ACCEPTED);
+    public List<Carrito> obtenerCarritos() {
+        return carritoRepository.findAll();
     }
 
     @Override
@@ -52,7 +51,7 @@ public class ServiceCarritoImpl implements ServiceCarrito{
     }
 
     @Override
-    public ResponseEntity<?> agregarProducto(Long idCarrito, OperacionCarrito operacionCarrito) {
+    public ResponseEntity<?> agregarProducto(Long idUsuario ,Long idCarrito, OperacionCarrito operacionCarrito) {
         Carrito carrito = carritoRepository.getById(idCarrito);
         Producto producto = productoRepository.getById(operacionCarrito.getProductoId());
         DetalleDeCarrito detalleDeCarrito = new DetalleDeCarrito();
@@ -60,6 +59,19 @@ public class ServiceCarritoImpl implements ServiceCarrito{
         detalleDeCarrito.setProducto(producto);
         detalleDeCarrito.setCantidad(operacionCarrito.getCantidad());
         carrito.agregarDetalle(detalleDeCarrito);
-        return new ResponseEntity<>(carritoRepository.save(carrito), HttpStatus.CREATED);
+        carritoRepository.save(carrito);
+        return new ResponseEntity<>("Producto agregado", HttpStatus.CREATED);
+    }
+
+    @Override
+    public ResponseEntity<?> cerrarCarrito(Long id_carrito) {
+
+        Carrito carrito = carritoRepository.getById(id_carrito);
+        if(carrito.getDetalleDeCarritos().size() >= 1){
+            carrito.setEstado(Estado.CERRADO);
+            carritoRepository.save(carrito);
+        }
+        return new ResponseEntity<>("Carrito Cerrado", HttpStatus.OK);
+
     }
 }

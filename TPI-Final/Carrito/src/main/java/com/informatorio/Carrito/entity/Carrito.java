@@ -36,6 +36,9 @@ public class Carrito {
     @CreationTimestamp
     private LocalDateTime fechaDeCreacion;
 
+    public Carrito() {
+    }
+
     @Transient
     @Positive
     private BigDecimal total;
@@ -103,6 +106,7 @@ public class Carrito {
     public void setTotal(BigDecimal total) {
         this.total = total;
     }
+
 
     public void agregarDetalle(DetalleDeCarrito detalleDeCarrito){
         detalleDeCarritos.add(detalleDeCarrito);

@@ -35,6 +35,9 @@ public class Producto {
 
     private boolean publicado;
 
+    public Producto() {
+    }
+
     public Long getId() {
         return id;
     }
