@@ -4,7 +4,9 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -17,9 +19,14 @@ public class Orden {
     @CreationTimestamp
     private LocalDateTime fechaDeCreacion;
 
-    @NotBlank
-    @Size(min = 1, max = 200)
     private String observacion;
+
+
+    private Integer cantidadDeProducto;
+
+    private BigDecimal totalOrden;
+
+    private String nombreDeUsuario;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_carrito", referencedColumnName = "id")
@@ -81,5 +88,29 @@ public class Orden {
 
     public void setEstado(Estado estado) {
         this.estado = estado;
+    }
+
+    public Integer getCantidadDeProducto() {
+        return cantidadDeProducto;
+    }
+
+    public void setCantidadDeProducto(Integer cantidadDeProducto) {
+        this.cantidadDeProducto = cantidadDeProducto;
+    }
+
+    public BigDecimal getTotalOrden() {
+        return totalOrden;
+    }
+
+    public void setTotalOrden(BigDecimal totalOrden) {
+        this.totalOrden = totalOrden;
+    }
+
+    public String getNombreDeUsuario() {
+        return nombreDeUsuario;
+    }
+
+    public void setNombreDeUsuario(String nombreDeUsuario) {
+        this.nombreDeUsuario = nombreDeUsuario;
     }
 }

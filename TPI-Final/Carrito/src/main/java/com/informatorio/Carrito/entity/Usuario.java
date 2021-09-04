@@ -53,13 +53,13 @@ public class Usuario {
     @Size(min = 1 , max = 50, message = "El país debe medir entra 1 y 50")
     private String pais;
 
-    @JsonIgnore
+
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Carrito> carritos = new ArrayList<>();
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "usuario" , cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Orden> ordenes = new ArrayList<>();
+
+    //@OneToMany(mappedBy = "usuario" , cascade = CascadeType.ALL, orphanRemoval = true)
+    //private List<Orden> ordenes = new ArrayList<>();
 
     public Usuario() {
     }
@@ -143,15 +143,14 @@ public class Usuario {
     public void setPais(String pais) {
         this.pais = pais;
     }
-    
-    public List<Orden> getOrdenes() {
+    /*public List<Orden> getOrdenes() {
         return ordenes;
     }
 
     public void setOrdenes(List<Orden> ordenes) {
         this.ordenes = ordenes;
     }
-
+*/
     public List<Carrito> getCarritos() {
         return carritos;
     }

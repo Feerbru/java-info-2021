@@ -32,8 +32,9 @@ public class ServiceCarritoImpl implements ServiceCarrito{
     }
 
     @Override
-    public List<Carrito> obtenerCarritos() {
-        return carritoRepository.findAll();
+    public ResponseEntity<?> obtenerCarritos()  {
+        List<Carrito> carritos = carritoRepository.findAll();
+        return new ResponseEntity<>(carritos, HttpStatus.ACCEPTED);
     }
 
     @Override

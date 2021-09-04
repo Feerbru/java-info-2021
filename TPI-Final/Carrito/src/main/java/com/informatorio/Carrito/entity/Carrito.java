@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import javax.validation.constraints.Positive;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -30,6 +29,7 @@ public class Carrito {
     @OneToOne(mappedBy = "carrito", cascade = CascadeType.ALL, orphanRemoval = true)
     private Orden orden;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "carrito", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DetalleDeCarrito> detalleDeCarritos = new ArrayList<>();
 
@@ -40,7 +40,6 @@ public class Carrito {
     }
 
     @Transient
-    @Positive
     private BigDecimal total;
 
     public Estado getEstado() {

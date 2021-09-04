@@ -28,7 +28,7 @@ public class CarritoController {
         return serviceCarrito.editarCarrito(carritoId,carrito);
     }
     @GetMapping(value = "/carrito/mostrar")
-    public List<Carrito> obtenerCarritos(){
+    public ResponseEntity<?> obtenerCarritos(){
         return serviceCarrito.obtenerCarritos();
     }
 

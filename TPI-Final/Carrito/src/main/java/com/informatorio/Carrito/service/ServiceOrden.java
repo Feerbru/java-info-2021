@@ -9,7 +9,7 @@ public interface ServiceOrden {
 
     Orden obtenerOrdenPorId(Long id);
 
-    ResponseEntity<?> crearOrden(Long id, Orden orden);
+    Orden crearOrden(Long id, Long idCarrito, Orden orden);
 
     ResponseEntity<?> cancelarOrden(Long idOrden, Long idUsuario);
 

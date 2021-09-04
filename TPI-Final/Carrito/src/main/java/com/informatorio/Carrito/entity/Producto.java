@@ -19,7 +19,6 @@ public class Producto {
     private String nombre;
     private String descripcion;
 
-    @Positive
     @NotNull(message = "Debes especificar el precio")
     private BigDecimal precioUnitario;
 

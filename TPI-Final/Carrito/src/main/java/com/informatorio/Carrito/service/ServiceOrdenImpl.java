@@ -2,6 +2,7 @@ package com.informatorio.Carrito.service;
 
 import com.informatorio.Carrito.entity.Carrito;
 import com.informatorio.Carrito.entity.Orden;
+import com.informatorio.Carrito.entity.Usuario;
 import com.informatorio.Carrito.repository.CarritoRepository;
 import com.informatorio.Carrito.repository.OrdenRepository;
 import com.informatorio.Carrito.repository.UsuarioRepository;
@@ -33,11 +34,15 @@ public class ServiceOrdenImpl implements ServiceOrden {
     }
 
     @Override
-    public ResponseEntity<?> crearOrden(Long id, Orden orden) {
-        Carrito carrito = carritoRepository.findById(id).get();
-        orden.setCarrito(carrito.getOrden().getCarrito());
-        orden.setEstado(carrito.getEstado());
-        return null;
+    public Orden crearOrden(Long id, Long idCarrito , Orden orden) {
+        Usuario usuario = usuarioRepository.getById(id);
+        Carrito carrito = carritoRepository.getById(idCarrito);
+        carrito.setOrden(orden);
+        orden.setCarrito(carrito);
+        //orden.setCantidadDeProducto(carrito.);
+        orden.setTotalOrden(carrito.getTotal());
+        orden.setNombreDeUsuario(carrito.getUsuario().getNombre());
+        return ordenRepository.save(orden);
     }
 
     @Override
